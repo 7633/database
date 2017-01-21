@@ -1,0 +1,32 @@
+﻿
+@model Tuple<List<database.Models.Student>, IList<database.Models.Departments>, IList<database.Models.Position>>
+@{
+    ViewBag.Title = "Добавить";
+}
+
+<div class="row">
+    <div class="col col-md-3 col-md-offset-4">
+        <form action="/Students/AddStudent" class="text-right">
+            <input type="text" class="form-control" name="names" placeholder="name" style="margin-top: 25px;" />
+            <input type="text" class="form-control" name="surnames" placeholder="surname" style="margin-top: 25px;" />
+            
+            <select class="form-control" name="deptId" style="margin-top: 25px;">
+                @{
+                    foreach (var dept in Model.Item2)
+                    {
+                        <option value="@dept.id">@dept.departmentName</option>
+                    }
+                }
+            </select>
+            <select class="form-control" name="posId" style="margin-top: 25px;">
+                @{
+                    foreach (var pos in Model.Item3)
+                    {
+                        <option value="@pos.id">@pos.PositionName</option>
+                    }
+                }
+            </select>
+            <input class="btn btn-primary" type="submit" value="Добавить" style="margin-top: 25px;" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model Tuple<database.Models.Customer, List<database.Models.Projects>>
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+<div class="row">
+    <div class="col col-md-3 col-md-offset-4">
+        <form action="/Customer/ChangeCustomer" class="text-right">
+            <input type="text" class="form-control" name="id" value="@Model.Item1.id" readonly style="margin-top: 25px;" />
+            <input type="text" class="form-control" name="name" value="@Model.Item1.customerName" style="margin-top: 25px;" />
+            <input type="text" class="form-control" name="surname" value="@Model.Item1.customerSurname" style="margin-top: 25px;" />
+
+            <select class="form-control" name="projId" style="margin-top: 25px;">
+                @{
+                    foreach (var proj in Model.Item2)
+                    {
+                        <option value="@proj.id">@proj.ProjectName</option>
+                    }
+                }
+            </select>
+            <input class="btn btn-primary" type="submit" value="Изменить" style="margin-top: 25px;" />
+        </form>
+    </div>
+</div>
+

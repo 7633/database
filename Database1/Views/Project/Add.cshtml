@@ -1,0 +1,21 @@
+﻿@model IList<database.Models.Projects>
+@{
+    ViewBag.Title = "Добавить";
+}
+
+<div class="row">
+    <div class="col col-md-3 col-md-offset-4">
+        <form action="/Project/AddProject" class="text-right">
+            <input type="text" class="form-control" name="name" placeholder="project name" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="begin" placeholder="beginDate" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="end" placeholder="endDate" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="realEnd" placeholder="realEnd" style="margin-top: 25px;" />
+            <input type="number" class="form-control" name="c" placeholder="cost" style="margin-top: 25px;" />
+            <input class="btn btn-primary" type="submit" value="Добавить" style="margin-top: 25px;" />
+        </form>
+    </div>
+</div>
+
+
+<h2>Add</h2>
+

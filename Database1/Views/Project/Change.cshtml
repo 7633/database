@@ -1,0 +1,20 @@
+﻿
+@model database.Models.Projects
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+<div class="row">
+    <div class="col col-md-3 col-md-offset-4">
+        <form action="/Project/ChangeProject" class="text-right">
+            <input type="number" class="form-control" name="id" value="@Model.id" readonly style="margin-top: 25px;" />
+            <input type="text" class="form-control" name="projName" value="@Model.ProjectName" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="bgn" value="@Model.beginDate" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="end" value="@Model.endDate" style="margin-top: 25px;" />
+            <input type="date" class="form-control" name="rend" value="@Model.realEndDate" style="margin-top: 25px;" />
+            <input type="number" class="form-control" name="cost" value="@Model.cost" style="margin-top: 25px;" />
+           
+            <input class="btn btn-primary" type="submit" value="Изменить" style="margin-top: 25px;" />
+        </form>
+    </div>
+</div>

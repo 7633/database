@@ -1,0 +1,53 @@
+﻿@model IList<database.Models.Projects>
+
+@{
+    ViewBag.Title = "Проекты";
+}
+
+<h2>Проекты</h2>
+
+<table class="table table-hover">
+    <tr>
+        
+        <th>id</th>
+        <th>имя</th>
+        <th>начало</th>
+        <th>конец</th>
+        <th>realEndDate</th>
+        <th>стоимость</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>   
+            <td class="active">
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td class="success">
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td class="alert-info">
+                @Html.DisplayFor(modelItem => item.beginDate)
+            </td>
+            <td class="warning">
+                @Html.DisplayFor(modelItem => item.endDate)
+            </td>
+            <td class="danger">
+                @Html.DisplayFor(modelItem => item.realEndDate)
+            </td>
+            <td class="success">
+                @Html.DisplayFor(modelItem => item.cost)
+            </td> 
+            <td class="alert-info">
+                @Html.ActionLink(" ", "Change", "Project", new { id = item.id }, new { @class = "glyphicon-pencil" })
+            </td>
+            <td class="alert-info">
+                @Html.ActionLink(" ", "Delete", "Project", new { id = item.id }, new { @class = "glyphicon glyphicon-trash" })
+            </td>      
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("Add", "Project")" class="btn btn-success btn-md" role="button">добавить</a>

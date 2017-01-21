@@ -1,0 +1,26 @@
+﻿@model IList<database.Models.Projects>
+@{
+    ViewBag.Title = "Добавить";
+}
+
+<div class="row">
+    <div class="col col-md-3 col-md-offset-4">
+        <form action="/Customer/AddCustomer" class="text-right">
+            <input type="text" class="form-control" name="name" placeholder="name" style="margin-top: 25px;" />
+            <input type="text" class="form-control" name="surname" placeholder="surname" style="margin-top: 25px;" />
+
+            <select class="form-control" name="projId" style="margin-top: 25px;">
+                @{
+                    foreach (var proj in Model)
+                    {
+                        <option value="@proj.id">@proj.ProjectName</option>
+                    }
+                }
+            </select>
+
+            <input class="btn btn-primary" type="submit" value="Добавить" style="margin-top: 25px;" />
+
+            
+            </form>
+        </div>
+</div>

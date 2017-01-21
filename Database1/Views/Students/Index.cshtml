@@ -1,0 +1,50 @@
+﻿@model IList<database.Models.Student>
+
+@{
+    ViewBag.Title = "Сотрудники";
+}
+
+<h2>Сотрудники</h2>
+
+<table class="table table-hover">
+    <tr>
+       
+        <th width="40px">id</th>
+        <th width="30px">департамент</th>
+        <th width="30px">должность</th>
+        <th>имя</th>
+        <th>фамилия</th>
+        <th></th>
+        <th></th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="active">
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td class="active">
+                @Html.DisplayFor(modelItem => item.departmentsId)
+            </td>
+            <td class="active">
+                @Html.DisplayFor(modelItem => item.positionId)
+            </td>
+            <td class="success">
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td class="warning">
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>          
+            <td class="alert-info">
+                @Html.ActionLink(" ", "Change", "Students", new { id = item.id }, new { @class = "glyphicon-pencil" })
+            </td>
+            <td class="alert-info">
+                @Html.ActionLink(" ", "Delete", "Students", new { id = item.id }, new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("Add", "Students")" class="btn btn-success btn-md" role="button">добавить</a>
